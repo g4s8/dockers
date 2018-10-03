@@ -15,5 +15,5 @@ RUN apk --update --no-cache add \
 RUN cd / && curl -L https://git.io/vp6lP | sh
 RUN groupadd sudo
 RUN touch /root/empty && touch /empty
-
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
