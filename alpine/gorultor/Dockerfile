@@ -1,11 +1,10 @@
-FROM g4s8/alpine:jdk-8
+FROM golang:alpine
 MAINTAINER Kirill <g4s8.public@gmail.com>
-LABEL Description="g4s8/rultor docker image"
+LABEL Description="g4s8/gorultor docker image for go"
 
 WORKDIR /tmp
 RUN apk --update --no-cache add \
   "bash" \
-  "ruby" \
   "docker" \
   "wget" \
   "curl" \
@@ -13,6 +12,7 @@ RUN apk --update --no-cache add \
   "shadow" \
   "sudo" \
   "make"
+RUN cd / && curl -L https://git.io/vp6lP | sh
 RUN groupadd sudo
 RUN touch /root/empty && touch /empty
 
