@@ -1,6 +1,6 @@
-VERSION?=latest
+VERSION?=alpine
 REGISTRY?=g4s8
-NAME?=gorultor
+NAME?=jre-8:alpine
 
 release: clean build push clean
 
