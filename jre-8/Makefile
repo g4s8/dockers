@@ -1,6 +1,6 @@
 VERSION?=alpine
 REGISTRY?=g4s8
-NAME?=jdk-8:alpine
+NAME?=jre-8
 
 release: clean build push clean
 
