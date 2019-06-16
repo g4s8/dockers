@@ -13,7 +13,10 @@ RUN apk --update --no-cache add \
   "git" \
   "shadow" \
   "sudo" \
-  "make" 
+  "make" && \
+  rm -fr /usr/share/terminfo && \
+  rm -fr /usr/share/X11 && \
+  rm -fr /var/cache/*
 
 # install pdd
 RUN apk add --no-cache --virtual .pdd-deps \
@@ -23,7 +26,8 @@ RUN apk add --no-cache --virtual .pdd-deps \
   bundle config build.nokogiri --use-system-libraries && \
   gem install --no-document json && \
   gem install --no-document pdd && \
-  apk del --no-cache .pdd-deps
+  apk del --no-cache .pdd-deps && \
+  rm -fr /var/cache/*
 
 # install docker cli
 RUN mkdir -p /tmp/download \
