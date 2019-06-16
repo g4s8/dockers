@@ -3,17 +3,36 @@ MAINTAINER Kirill <g4s8.public@gmail.com>
 LABEL Description="g4s8/rultor docker image"
 
 WORKDIR /tmp
+
+# install build packages
 RUN apk --update --no-cache add \
   "bash" \
   "ruby" \
-  "docker" \
   "wget" \
   "curl" \
   "git" \
   "shadow" \
   "sudo" \
-  "make"
-RUN groupadd sudo
-RUN touch /root/empty && touch /empty
+  "make" 
+
+# install pdd
+RUN apk add --no-cache --virtual .pdd-deps \
+    "build-base" "ruby-dev" \
+    "libxml2-dev" "libxslt-dev" && \
+  gem install --no-document bundle && \
+  bundle config build.nokogiri --use-system-libraries && \
+  gem install --no-document json && \
+  gem install --no-document pdd && \
+  apk del --no-cache .pdd-deps
+
+# install docker cli
+RUN mkdir -p /tmp/download \
+  && curl -s -L "https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz" | \
+    tar -xz -C /tmp/download \
+  && mv /tmp/download/docker/docker /usr/local/bin/ \
+  && rm -rf /tmp/download
+
+# rultor specific workarounds
+RUN groupadd sudo && touch /root/empty && touch /empty
 
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
