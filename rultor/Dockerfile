@@ -26,6 +26,7 @@ RUN apk add --no-cache --virtual .pdd-deps \
   bundle config build.nokogiri --use-system-libraries && \
   gem install --no-document json && \
   gem install --no-document pdd && \
+  gem install --no-document xcop && \
   apk del --no-cache .pdd-deps && \
   rm -fr /var/cache/*
 
