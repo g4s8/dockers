@@ -1,4 +1,4 @@
-FROM g4s8/alpine:jdk-8
+FROM g4s8/jdk-8:alpine
 MAINTAINER Kirill <g4s8.public@gmail.com>
 LABEL Description="g4s8/rultor docker image"
 

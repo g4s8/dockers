@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.9
 MAINTAINER Kirill <g4s8.public@gmail.com>
 LABEL Description="Alpine with jdk"
 
