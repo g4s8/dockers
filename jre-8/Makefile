@@ -1,4 +1,4 @@
-VERSION?=alpine
+VERSION?=alpine3.10
 REGISTRY?=g4s8
 NAME?=jre-8
 

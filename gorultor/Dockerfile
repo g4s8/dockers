@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:alpine3.10
 MAINTAINER Kirill <g4s8.public@gmail.com>
 LABEL Description="rultor docker image for go"
 
