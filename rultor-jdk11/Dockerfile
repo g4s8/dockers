@@ -14,7 +14,8 @@ RUN mkdir /tmp/apk.cache && \
     "git" \
     "shadow" \
     "sudo" \
-    "make" && \
+    "make" \
+    "gnupg" && \
   rm -fr /usr/share/terminfo && \
   rm -fr /usr/share/X11 && \
   rm -fr /tmp/apk.cache
