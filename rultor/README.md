@@ -6,4 +6,4 @@ Includes: OpenJDK-8, Docker client, Ruby with pdd installed.
 
 ## Tags
 
-`g4s8/rultor:alpine` - latest alpine based build
+`g4s8/rultor:alpine3.10` - latest alpine based build
